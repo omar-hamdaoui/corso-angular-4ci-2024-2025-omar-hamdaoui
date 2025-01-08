@@ -4,6 +4,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=8b39e56d4dad491aaa626b87f7260358&client_secret=4f3e9a298b084c35846c5ddf5fc3927e
 
 ###
+
 GET https://api.spotify.com/v1/search?q=&type=artist
 Authorization: Bearer BQBu0k_q6DwHAvP4sRnDbiv8mcw9aRvZkIOW0hPVxPI4c7ialoC26qukcawqoKI9uyslAT8jtRuDUOiKzKegEvleBX2YFs9oU8CMijjeFLZKHGwGFjI
 
@@ -13,4 +14,4 @@ Authorization: Bearer BQC3jTVppnXUDqHGhM7Z_shCJt1DnNMt94b3GNr1zVSNX_qEtC0FEPeoD_
 
 ###
 GET https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
-Authorization: Bearer BQDz8gGhcMbYxhISA7tVhev_fx75b1Aj32S9cNMvkjjQyObGPIJq2yAVAt9gHjIYor90upZ2H9XeT9aBJFz2zSs-lw4leYwCKL5uopA35-qnxgQnygM
+Authorization: Bearer BQDCZpmumlw47pAZnULJtNarR8bljSryxJg6oLSfYUSuEvkgTws_M3XT-eKPkqyiZ6Z5T3fatCgNBKP8EhIKY8AJHWWmK_5JPkKBBH-q7rbSLb9zZ-s

@@ -1,7 +1,7 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from '../spotify.service';
-import { ITracks } from '../i-tracks';
+import { Icover, ITracks } from '../i-tracks';
 import { CoverComponent } from './cover/cover.component';
 import { TracksListComponent } from './tracks-list/tracks-list.component';
 
@@ -20,14 +20,21 @@ export class TracksComponent {
 
   // Signal che gestisce i dati ricevuti da Spotify che devono essere visualizzati
   elencoTracce: WritableSignal<ITracks | null> = signal<ITracks |null>(null);
-
+  infoCover: WritableSignal<Icover | undefined> = signal<Icover | undefined>(undefined);
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(parametriNellaURL => {
       // Ottengo l'id dell'artista
       let id: string = parametriNellaURL['id'];
       this.spotifyService.getTracks(id).subscribe(dati => {
         this.elencoTracce.set(dati);
-      })
-    })
+        this.infoCover.set({ 
+          name: dati.name,
+          artists: dati.artists,
+          images: dati.images
+          
+      });
+console.log(dati);
+      });
+    });
   }
 }
