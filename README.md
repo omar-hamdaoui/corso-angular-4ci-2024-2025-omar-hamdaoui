@@ -111,6 +111,9 @@ export class MioComponente {
 
 Per utilizzare un componente all'interno di un altro, inserisci il suo **selector** nel template HTML del componente padre:
 
+
+
+-Reactive form : Dico se i valori immessi siano validi,in caso contrario dico in tempo reale che non si può
 ```html
 <!-- Nel template del componente padre -->
 <app-mio-componente></app-mio-componente>

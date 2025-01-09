@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container mt-5 ">
+    <!-- [FormGroup] collega la form HTML all'oggetto FormGroup dichiarato in ts(ngSUbmit)è
+     un event binding che manda in esecuzione il metodo login() quando l'utente clicca sul button acedi (di tipo submit)-->
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="row">
+            <label for="username" class="form-label">Username</label>
+            <!---->
+            <input class="form-control" type="text" id="username" formControlName="username"
+                [class.is-invalid]="!loginForm.controls['username'].valid && loginForm.controls['username'].touched"
+                [class.is-valid]="loginForm.controls['username'].valid">
+            <div class="invalid-feedback">Usename obbligatorio.</div>
+        </div>
+        <div class="row mt-3">
+            <label for="password" class="form-label">Password</label>
+            <input class="form-control" type="password" id="password" formControlName="password"
+                [class.is-invalid]="!loginForm.controls['password'].valid && loginForm.controls['password'].touched"
+                [class.is-valid]="loginForm.controls['password'].valid">
+            <div class="" invalid-feedback>Usename obbligatorio.</div>
+        </div>
+        <div class="row mt-3">
+            <button class="btn btn-primary" type="submit"[disabled]="!loginForm.valid">Accedi</button>
+            <button class="btn btn-danger" type="button">Annulla</button>
+        </div>
+    </form>
+</div>
