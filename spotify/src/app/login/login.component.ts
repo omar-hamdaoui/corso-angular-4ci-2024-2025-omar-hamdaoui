@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators ,ReactiveFormsModule} from '@angular/forms';
+import { Component, inject, Signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,16 @@ import { FormControl, FormGroup, Validators ,ReactiveFormsModule} from '@angular
 })
 export class LoginComponent {
 
+  loginService: LoginService = inject(LoginService);
+  errorFeedback: Signal<boolean> = this.loginService.errorFeedback;
+
   loginForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)])
-  });
+  })
 
   login(): void {
-    console.log(this.loginForm.value);
-      ;
+    this.loginService.login(this.loginForm.value);
+    
   }
 }
